@@ -53,13 +53,16 @@
         position: absolute;
         top: 0; right: 0;
     }
-    // .imageContainer img{
-    //     width: 50%;
-    //     margin-left: 350px;
-    // }
+
 
     .slidingTextContainer {
-
+        position: absolute;
+        font-size: 50vh;
+        bottom: -100px;
+        white-space: nowrap;
+        color: #ffffff09;
+        width: 50%;
+        font-weight: bold;
     }
 
 }
