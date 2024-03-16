@@ -3,13 +3,13 @@
     overflow: hidden;
     background: linear-gradient(180deg, #0c0c1d, #111132);
     position: relative;
-
-
+    
+    
     .wrapper {
         max-width: 1024px;
         height: 100%;
         margin: auto;
-
+        
         .textContainer {
             height: 100%;
             width: 50%;
@@ -23,14 +23,14 @@
                 color: rebeccapurple;
                 letter-spacing: 10px;
             }
-
+            
             h1 {
                 font-size: 50px;
             }
-
+            
             .buttons button {
-                    padding: 20px;
-                    border: 1px solid white;
+                padding: 20px;
+                border: 1px solid white;
                     border-radius: 10px;
                     background-color: transparent;
                     color: white;
@@ -38,24 +38,24 @@
                     cursor: pointer;
                     font-weight: 300;
                 }
-            
-
-            img {
-                width: 40px;
+                
+                
+                img {
+                    width: 40px;
+                }
             }
         }
-    }
-
-
-
-    .imageContainer img{
-        height: 100%;
-        position: absolute;
-        top: 0; right: 0;
-    }
-
-
-    .slidingTextContainer {
+        
+        
+        
+        .imageContainer img{
+            height: 100%;
+            position: absolute;
+            top: 0; right: 0;
+        }
+        
+        
+        .slidingTextContainer {
         position: absolute;
         font-size: 50vh;
         bottom: -100px;

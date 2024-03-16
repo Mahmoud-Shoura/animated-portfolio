@@ -1,5 +1,6 @@
+import { useRef, useState } from "react";
 import "./contact.scss";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const variants = {
   initial: {
@@ -17,8 +18,38 @@ const variants = {
 };
 
 const Contact = () => {
+  const ref = useRef();
+
+  const isInView = useInView(ref, { margin: "-100px" });
+
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "b0bd6eca-f3ab-4574-9560-46c317954e7b");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <motion.div
+      ref={ref}
       className="contact"
       variants={variants}
       initial="initial"
@@ -47,11 +78,13 @@ const Contact = () => {
           transition={{ delay: 3, duration: 1 }}
         >
           <svg height="450px" width="450px" viewBox="0 0 512 512">
-            <g>
-              <path
-                strokeWidth={0.2}
-                fill="none"
-                d="M255.998,0.002C114.606,0.012,0.01,114.604,0,256c0.01,141.406,114.65,255.328,255.926,255.998h0.334
+            <motion.path
+              strokeWidth={0.7}
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={isInView && { pathLength: 1 }}
+              transition={{ duration: 3 }}
+              d="M255.998,0.002C114.606,0.012,0.01,114.604,0,256c0.01,141.406,114.65,255.328,255.926,255.998h0.334
 		l0.297-0.009c27.124,0.038,49.507-8.527,64.961-22.594c15.468-14.01,23.727-33.254,23.708-52.736
 		c0.02-9.148-1.914-18.306-5.521-27.024c6.086-3.464,10.143-6.612,11.301-7.444c4.152-2.957,16-18.766,7.693-31.79
 		c-8.344-13.014-38.042-42.678-46.152-47.702c-8.086-5.015-21.598-0.124-28.105,9.426c-6.526,9.55-11.674,6.689-11.674,6.689
@@ -64,11 +97,11 @@ const Contact = () => {
 		c41.033,41.052,66.354,97.606,66.373,160.237c-0.01,38.67-9.666,74.966-26.698,106.784c-9.531,17.837-21.397,34.23-35.177,48.812
 		c-5.569,5.905-5.301,15.206,0.594,20.776c5.894,5.578,15.205,5.32,20.784-0.584c15.54-16.46,28.937-34.976,39.712-55.139
 		C501.071,340.717,512,299.589,512,256C511.98,114.604,397.389,0.012,255.998,0.002z"
-              />
-            </g>
+            />
           </svg>
         </motion.div>
         <motion.form
+          onSubmit={onSubmit}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
@@ -78,6 +111,7 @@ const Contact = () => {
           <textarea rows={8} placeholder="Message" />
           <button>Submit</button>
         </motion.form>
+        <span>{result}</span>
       </div>
     </motion.div>
   );

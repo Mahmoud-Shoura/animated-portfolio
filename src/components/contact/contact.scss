@@ -26,9 +26,10 @@
         position: relative;
 
         .phoneSvg {
-            background-color: rebeccapurple;
+            stroke: orange;
             position: absolute;
             margin: auto;
+            z-index: -1;
         }
 
 
@@ -52,6 +53,10 @@
                 cursor: pointer;
                 font-weight: 500;
             }
+        }
+        span {
+            display: block;
+            margin: 20px 0;
         }
 
     }
