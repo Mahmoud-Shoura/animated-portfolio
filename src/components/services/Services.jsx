@@ -32,7 +32,7 @@ const Services = () => {
       //   animate="animate"
       //   whileInView="animate"
       ref={ref}
-      animate={isInView && "animate"}
+      animate={"animate"}
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
@@ -117,7 +117,7 @@ const Services = () => {
           </p>
           <button>Go</button>
         </motion.div>
-      </motion.div>
+      </motion.div>{" "}
     </motion.div>
   );
 };
