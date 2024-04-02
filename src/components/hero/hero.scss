@@ -28,6 +28,13 @@
                 text-align: center;
             }
 
+            @include tablet {
+                height: 50%;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+
             h2 {
                 font-size: 30px;
                 color: rebeccapurple;
@@ -39,6 +46,10 @@
 
                 @include mobile {
                     font-size: 36px;
+                }
+
+                @include tablet {
+                    font-size: 42px;
                 }
             }
             
@@ -84,6 +95,14 @@
                 width: 100%;
                 top: unset;
                 bottom: 0;
+            }
+
+            @include tablet {
+                height: 60%;
+                width: 90%;
+                top: unset;
+                bottom: 0;
+                transform: translate(-40px, 50px);
             }
 
             img {
