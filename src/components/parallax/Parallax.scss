@@ -17,6 +17,11 @@
             font-size: 72px;
             text-align: center;
         }
+
+        @include tablet {
+            font-size: 72px;
+            text-align: center;
+        }
     
     }
 
@@ -33,6 +38,11 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
+
+        @include tablet {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
     }
     .planets {
         background-image: url("/planets.png");
@@ -44,6 +54,11 @@
         z-index: 2;
 
         @include mobile {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        @include tablet {
             background-size: contain;
             background-repeat: no-repeat;
         }
