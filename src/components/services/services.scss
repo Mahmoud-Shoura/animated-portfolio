@@ -21,6 +21,11 @@
             flex-direction: column;
         }
 
+        @include tablet {
+            align-self: center;
+            text-align: center;
+        }
+
         p {
             font-weight: 200;
             font-size: 20px;
@@ -36,6 +41,10 @@
             @include mobile {
                 width: 300px;
             }
+
+            @include tablet {
+                width: 300px;
+            }
         }
     }
 
@@ -47,6 +56,10 @@
         margin-bottom: 20px;
 
         @include mobile {
+            width: 100%;
+        }
+
+        @include tablet {
             width: 100%;
         }
         .title {
@@ -61,6 +74,12 @@
                 gap: 20px;
             }
 
+            @include tablet {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
             img {
                 width: 300px;
                 height: 100px;
@@ -70,6 +89,11 @@
                 @include mobile {
                     width: 200px;
                     height: 50px;
+                }
+
+                @include tablet {
+                    width: 350px;
+                    height: 80px;
                 }
             }
 
@@ -96,6 +120,12 @@
                     width: 150px;
                     height: 50px;
                 }
+
+                @include tablet {
+                    font-size: 28px;
+                    width: 350px;
+                    height: 80px;
+                }
             }
         }
     }
@@ -111,6 +141,11 @@
             width: 100%;
         }
 
+        @include tablet {
+            // flex-direction: column;
+            width: 100%;
+        }
+
         .box {
             padding: 45px;
             border: 0.5px solid gray;
@@ -119,6 +154,13 @@
             justify-content: space-between;
 
             @include mobile {
+                border: none;
+                align-items: center;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            @include tablet {
                 border: none;
                 align-items: center;
                 gap: 20px;
@@ -141,6 +183,16 @@
                 font-size: medium;
 
                 @include mobile {
+                    background-color: transparent;
+                    border: 1px solid orange;
+                    border-radius: 5px;
+                    color: orange;
+                    width: 50%;
+                    padding: 5px;
+                    font-weight: 300;
+                }
+
+                @include tablet {
                     background-color: transparent;
                     border: 1px solid orange;
                     border-radius: 5px;
