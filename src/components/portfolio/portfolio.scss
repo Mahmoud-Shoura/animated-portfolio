@@ -18,6 +18,11 @@
             font-size: 24px;
         }
 
+        @include tablet {
+            padding-top: calc(100vh - 100px);
+            font-size: 24px;
+        }
+
         .progressBar {
             height: 10px;
             background-color: white;
@@ -44,6 +49,10 @@
 
             @include mobile {
                 flex-direction: column;
+            }
+
+            @include tablet {
+                max-width: 80%;
             }
 
             .imageContainer {
